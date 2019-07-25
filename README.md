@@ -24,7 +24,7 @@ public MainGame() {
 }
 ```
 in the Load Content function load any states you have created
-'''c#
+```c#
 protected override void LoadContent()
 {
     // Create a new SpriteBatch, which can be used to draw textures.
@@ -32,4 +32,4 @@ protected override void LoadContent()
 
     gameStateManager.AddState(new GameStates.TitleState(), "title");
 }
-'''
+```
