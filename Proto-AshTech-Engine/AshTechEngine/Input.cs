@@ -97,19 +97,26 @@ namespace AshTechEngine
         /// </summary>
         private static void ResetActionMaps()
         {
-            actionMaps = new SortedDictionary<string, ActionMap>();
+            //Try Load config
+            var jsonRead = FileSystem.ReadTextLocalStorage("Input.json").Result;
+            actionMaps = JsonConvert.DeserializeObject<SortedDictionary<string, ActionMap>>(jsonRead);
+            if (actionMaps == null)
+            {
+                actionMaps = new SortedDictionary<string, ActionMap>();
 
-            //actionMap
-            //move up
-            var actionMap = new ActionMap();
-            actionMap.AddKeyboardKeyMap(Keys.W);
-            actionMap.AddKeyboardKeyMap(Keys.Up);
-            actionMap.AddGamePadMap(GamePadButtons.Up);
-            actionMaps.Add("MoveUp", actionMap);
+                //actionMap
+                //move up
+                var actionMap = new ActionMap();
+                actionMap.AddKeyboardKeyMap(Keys.W);
+                actionMap.AddKeyboardKeyMap(Keys.Up);
+                actionMap.AddGamePadMap(GamePadButtons.Up);
+                actionMaps.Add("MoveUp", actionMap);
+
+                var json = JsonConvert.SerializeObject(actionMaps);
+                FileSystem.WriteTextLocalStorage("Input.json", json).Wait();
+            }
 
 
-            var json = JsonConvert.SerializeObject(actionMaps);
-            FileSystem.WriteTextLocalStorage("Input.json", json).Wait();
 
         }
 

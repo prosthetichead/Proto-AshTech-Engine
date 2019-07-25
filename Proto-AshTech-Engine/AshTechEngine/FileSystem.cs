@@ -30,7 +30,7 @@ namespace AshTechEngine
         public static async Task<string> ReadTextLocalStorage(string filePath)
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            StorageFile File = await storageFolder.CreateFileAsync(filePath, CreationCollisionOption.ReplaceExisting);
+            StorageFile File = await storageFolder.GetFileAsync(filePath);
             string text = await Windows.Storage.FileIO.ReadTextAsync(File);
             return text;
         }

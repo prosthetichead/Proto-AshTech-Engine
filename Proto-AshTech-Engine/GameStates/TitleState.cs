@@ -19,7 +19,7 @@ namespace Proto_AshTech_Engine.GameStates
         }
 
         public override void Update(GameTime gameTime)
-        {
+        { 
 
         }
 
