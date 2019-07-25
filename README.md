@@ -1,5 +1,5 @@
-# Proto_AshtechEngine
-Proto Ashtech Engine 
+# Proto AshTech Engine
+Proto AshTech Engine 
 
 Create a good base engine to then use to port tileworld code over to
 
